@@ -19,5 +19,8 @@
   "homepage": "https://github.com/adelina2222/node-js-tools#readme",
   "bin": {
     "nodels": "index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
   }
 }
