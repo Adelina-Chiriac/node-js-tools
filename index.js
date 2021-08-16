@@ -25,8 +25,14 @@ fs.readdir(process.cwd(), async (err, filenames) => {
         // Get the index of each stats index (so we have a record of which filename the stats object belongs to)
         const index = allStats.indexOf(stats);
 
-        // Print to the console whether or not the filename is a file or not
-        console.log(filenames[index], stats.isFile());
+        // Print to the console the filename, normally if it's a file
+        if (stats.isFile()) {
+            console.log(filenames[index]);
+        }
+        // Print to the console the file, with red if it's a folder
+        else {
+            console.log(chalk.red(filenames[index]));
+        }
 
     }
 });
