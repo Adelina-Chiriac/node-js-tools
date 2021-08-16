@@ -3,6 +3,9 @@
 // Require the File System module
 const fs = require("fs");
 
+// Require the Chalk module
+const chalk = require("chalk");
+
 // Promise-based implementation
 const lstat = fs.promises.lstat;
 
