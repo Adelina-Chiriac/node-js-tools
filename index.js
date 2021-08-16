@@ -6,17 +6,23 @@ const fs = require("fs");
 // Require the Chalk module
 const chalk = require("chalk");
 
+// Require the Path module
+const path = require("path");
+
 // Promise-based implementation
 const lstat = fs.promises.lstat;
 
-fs.readdir(process.cwd(), async (err, filenames) => {
+// Create a variable that holds either the value for a different target directory or the current working directory 
+const targetDirectory = process.argv[2] || process.cwd();
+
+fs.readdir(targetDirectory, async (err, filenames) => {
     if (err) {
         console.log(err);
     }
 
     // Map over the filenames array 
     const statPromises = filenames.map((filename) => {
-        return lstat(filename); 
+        return lstat(path.join(targetDirectory, filename)); 
     });
 
     const allStats = await Promise.all(statPromises);
