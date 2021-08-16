@@ -6,7 +6,7 @@ const fs = require("fs");
 // Promise-based implementation
 const lstat = fs.promises.lstat;
 
-fs.readdir(process.cwd(), (err, filenames) => {
+fs.readdir(process.cwd(), async (err, filenames) => {
     if (err) {
         console.log(err);
     }
